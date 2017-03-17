@@ -1,0 +1,732 @@
+$fontProximaReg: 'proxima_nova_rgregular';
+$fontProximaLight: 'proxima_novalight';
+$fontProximaSemiBold: 'proxima_novasemibold';
+
+$primaryTextColor: #333333;
+$secondaryTextColor: #003e7e;
+$tertiaryTextColor: #666666;
+$quaternaryTextColor: #fff;
+$btnBgColor: #e0e0e0;
+$btnBgHover: #FFA000;
+$btnIconColor: #777777;
+$actionBgHover: #dddddd;
+$actionBtnBdr: #ddd;
+
+$tableBordercolor: #ddd;
+$tableHeaderTextcolor: #000;
+
+$graphBlueshade1: #0396e0;
+$graphBlueshade2: #017dbd;
+$graphBlueshade3: #01689c;
+$graphBlueshade4: #00527c;
+$graphBlueshade5: #003a59;
+
+$graphOrangeShade1: #ffa000;
+
+$font14: 14px;
+
+$materialIconXs: 0.74em;
+
+$iconGraphAll: "../assets/images/all-graph-icons.svg";
+$iconGraphAll-fallBack: "../assets/images/all-graph-icons.png";
+$graphIconWidth : 28px;
+$graphIconHeight : 22px;
+$graphIconHeightHover : -($graphIconHeight*1);
+$graphIconHeightActive : -($graphIconHeight*2);
+
+$btnIcon: "../assets/images/btn-icons.svg";
+$btnIcon-fallBack: "../assets/images/btn-icons.png";
+$btnIconWidth : 20px;
+$btnIconHeight : 20px;
+$btnIconHeightHover : -($btnIconHeight*1);
+
+@mixin box-shadow {
+    -webkit-box-shadow: 0 1px 5px 2px rgba(0,0,0,0.13);
+    -moz-box-shadow: 0 1px 5px 2px rgba(0,0,0,0.13);
+    -ms-box-shadow: 0 1px 5px 2px rgba(0,0,0,0.13);
+    box-shadow: 0 1px 5px 2px rgba(0,0,0,0.13);
+}
+
+@mixin box-shadow-edit {
+    -webkit-box-shadow: 0px 0px 7px 4px rgba(145, 191, 220, 0.6);
+    -moz-box-shadow: 0px 0px 7px 4px rgba(145, 191, 220, 0.6);
+    -ms-box-shadow: 0px 0px 7px 4px rgba(145, 191, 220, 0.6);
+    box-shadow: 0px 0px 7px 4px rgba(145, 191, 220, 0.6);
+}
+
+
+.analytic {
+    color:$primaryTextColor;
+    font-family: $fontProximaLight;
+
+    h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+
+    h2, h3 {
+        color:$primaryTextColor;
+    }
+    h2 {
+        font-size: 19px;
+        line-height: 23px;
+    }
+    h3 {
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+    .disabled {
+        cursor: not-allowed !important;
+        opacity: 0.4 !important;
+    }
+
+    .bg {
+
+        &-blue1 {
+           background-color: $graphBlueshade1;
+        }
+
+        &-blue2 {
+           background-color: $graphBlueshade2;
+        }
+
+        &-blue3 {
+           background-color: $graphBlueshade3;
+        }
+
+        &-blue4 {
+           background-color: $graphBlueshade4;
+        }
+
+        &-blue5 {
+           background-color: $graphBlueshade5;
+        }
+
+        &-orange {
+           background-color: $graphOrangeShade1;
+        }
+    }
+
+    .l-r-margin-5 {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .data-list {
+       margin-bottom: 10px;
+    }
+
+    .btn {
+        font-family: $fontProximaLight;
+        font-size: 15px;
+        line-height: 19px;
+        padding: 12px 24px;
+        border-radius: 1px;
+        height: auto;
+        border: 0;
+        background-color: $btnBgColor;
+        color: $primaryTextColor;
+
+        &-filter {
+            display: none;
+        }
+
+        .icon {
+            width: $btnIconWidth;
+            height: $btnIconHeight;
+            background-image: url($btnIcon);
+            background-repeat: no-repeat;
+            float: left;
+            margin-right: 6px;
+
+            @at-root html.no-svg .analytic .btn {
+                .icon {
+                    background-image: url($btnIcon-fallBack);
+                }
+            }
+
+            &-edit {
+                background-position:-($btnIconWidth*0) 0;
+            }
+
+            &-save {
+                background-position:-($btnIconWidth*1) 0;
+            }
+
+            &-filter {
+                background-position:-($btnIconWidth*2) 0;
+            }
+        }
+
+        &:hover {
+            background-color: $btnBgHover;
+            color: $quaternaryTextColor;
+
+            .icon {
+
+                &-edit {
+                    background-position:-($btnIconWidth*0) $btnIconHeightHover;
+                }
+
+                &-save {
+                    background-position:-($btnIconWidth*1) $btnIconHeightHover;
+                }
+
+                &-filter {
+                    background-position:-($btnIconWidth*2) $btnIconHeightHover;
+                }
+            }
+        }
+    }
+
+    .box {
+        @include box-shadow;
+        background-color: #fff;
+        padding: 10px 20px;
+
+        &.fixed-height-270 {
+            height: 270px;
+            min-height: 270px;
+            max-height: 270px;
+            .chart-node{
+                height: 210px !important;
+            }
+        }
+
+        &-header {
+            padding-bottom: 10px;
+
+            &-left {
+                float: left;
+                margin-right: 10px;
+            }
+
+            &-middle {
+                float: left;
+                width: 68%;
+            }
+
+            &-right {
+                float: right;
+            }
+
+           .caption {
+
+                .subTitle {
+                    width: 100%;
+                    display: block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    /* white-space: nowrap; */
+                }
+            }
+        }
+
+        &.draggable {
+            .box-header:hover {
+                cursor: move;
+            }
+        }
+
+        &-chart {
+            width: 100%;
+            height: 84%;
+
+            .progressbar {
+                position: relative;
+                padding-right: 45px;
+                float: left;
+                width: 100%;
+
+                &-percentage {
+                    height: 8px;
+                    float: left;
+                    position: relative;
+                    margin: 5px 0 5px 0;
+                    width: 0%;
+                }
+
+                &-text {
+                    position: absolute;
+                    width: 34px;
+                    margin-left: 10px;
+                }
+            }
+
+            .text {
+                font-size: 0.88em;
+                color: $tertiaryTextColor;
+
+                &-view {
+                    height: 100%;
+                    width: 100%;
+                    display: table;
+                }
+
+                &-container {
+                    display: table-cell;
+                    vertical-align: middle;
+                    position: relative;
+
+                    h4, h5 {
+                        padding: 7px 0;
+                    }
+
+                    .counterUp {
+                        font-family: $fontProximaReg;
+
+                        .number {
+                            font-size: 60px;
+                            line-height: 64px;
+                            color: $graphBlueshade1;
+                        }
+
+                        .info {
+                            font-size: $font14;
+                        }
+                    }
+
+                    .counterLearner {
+                       .number {
+                            font-size: 30px;
+                            line-height: 34px;
+                            color: $graphBlueshade1;
+                        }
+                    }
+
+                    .block {
+                        display: block;
+                    }
+
+                    .user-guide {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        font-size: 12px;
+                        line-height: 14px;
+                    }
+                }
+
+                &-list {
+                    .tag {
+                        display: inline-block;
+                        width: 8px;
+                        height: 8px;
+                        margin-right: 10px;
+                    }
+                }
+
+                &-link {
+                    color: $secondaryTextColor;
+                    text-decoration: underline;
+                    font-size: 0.81em;
+                }
+            }
+        }
+    }
+
+    .action {
+        margin: 0;
+        padding: 0;
+
+        li {
+            float: left;
+            cursor: pointer;
+            border-top: 1px solid $actionBtnBdr;
+            border-bottom: 1px solid $actionBtnBdr;
+            border-left: 1px solid $actionBtnBdr;
+
+            &:last-child {
+               border-right: 1px solid $actionBtnBdr;
+            }
+
+            .icon {
+                width: $graphIconWidth;
+                height: $graphIconHeight;
+                background-image: url($iconGraphAll);
+                background-repeat: no-repeat;
+                display: block;
+                cursor: pointer;
+
+                @at-root html.no-svg .analytic .action li {
+                    .icon {
+                        background-image: url($iconGraphAll-fallBack);
+                    }
+                }
+                &-drag {
+                    background-position:-($graphIconWidth*0) 0;
+                    cursor: move;
+                }
+
+                &-fullscreen {
+                    background-position:-($graphIconWidth*1) 0;
+                }
+
+                &-timeline {
+                    background-position:-($graphIconWidth*2) 0;
+                }
+
+                &-pie {
+                    background-position:-($graphIconWidth*3) 0;
+                }
+
+                &-bubble {
+                    background-position:-($graphIconWidth*4) 0;
+                }
+
+                &-donut {
+                    background-position:-($graphIconWidth*5) 0;
+                }
+
+                &-horizontal {
+                    background-position:-($graphIconWidth*6) 0;
+                }
+
+                &-textmode {
+                    background-position:-($graphIconWidth*7) 0;
+                }
+
+                &-filterlist {
+                    background-position:-($graphIconWidth*8) 0;
+                }
+
+                &-viewon {
+                    background-position:-($graphIconWidth*9) 0;
+                }
+
+                &-viewoff {
+                    background-position:-($graphIconWidth*10) 0;
+                }
+            }
+
+            &.noBorder {
+                border: 1px solid transparent;
+
+                &:last-child {
+                    border-right: 1px solid transparent;
+                }
+            }
+
+            &.noBg:hover {
+                background-color: transparent;
+            }
+
+            &.active,
+            &.active:hover {
+                border-top: 1px solid $actionBtnBdr;
+                border-bottom: 1px solid $actionBtnBdr;
+                border-left: 1px solid $actionBtnBdr;
+
+                 &:last-child {
+                   border-right: 1px solid $actionBtnBdr;
+                }
+
+                .icon {
+                    cursor: default;
+                }
+            }
+
+            &:hover {
+
+                .icon {
+
+                    &-drag {
+                        background-position:-($graphIconWidth*0) $graphIconHeightHover;
+                    }
+
+                    &-fullscreen {
+                        background-position:-($graphIconWidth*1) $graphIconHeightHover;
+                    }
+
+                    &-timeline {
+                        background-position:-($graphIconWidth*2) $graphIconHeightHover;
+                    }
+
+                    &-pie {
+                        background-position:-($graphIconWidth*3) $graphIconHeightHover;
+                    }
+
+                    &-bubble {
+                        background-position:-($graphIconWidth*4) $graphIconHeightHover;
+                    }
+
+                    &-donut {
+                        background-position:-($graphIconWidth*5) $graphIconHeightHover;
+                    }
+
+                    &-horizontal {
+                        background-position:-($graphIconWidth*6) $graphIconHeightHover;
+                    }
+
+                    &-textmode {
+                        background-position:-($graphIconWidth*7) $graphIconHeightHover;
+                    }
+
+                    &-filterlist {
+                        background-position:-($graphIconWidth*8) $graphIconHeightHover;
+                    }
+
+                    &-viewon {
+                        background-position:-($graphIconWidth*9) $graphIconHeightHover;
+                    }
+
+                    &-viewoff {
+                        background-position:-($graphIconWidth*10) $graphIconHeightHover;
+                    }
+                }
+            }
+
+
+            &.active,
+            &.active:hover {
+                 background-color: $actionBgHover;
+                .icon {
+
+                    &-drag {
+                        background-position:-($graphIconWidth*0) $graphIconHeightActive;
+                    }
+
+                    &-fullscreen {
+                        background-position:-($graphIconWidth*1) $graphIconHeightActive;
+                    }
+
+                    &-timeline {
+                        background-position:-($graphIconWidth*2) $graphIconHeightActive;
+                    }
+
+                    &-pie {
+                        background-position:-($graphIconWidth*3) $graphIconHeightActive;
+                    }
+
+                    &-bubble {
+                        background-position:-($graphIconWidth*4) $graphIconHeightActive;
+                    }
+
+                    &-donut {
+                        background-position:-($graphIconWidth*5) $graphIconHeightActive;
+                    }
+
+                    &-horizontal {
+                        background-position:-($graphIconWidth*6) $graphIconHeightActive;
+                    }
+
+                    &-textmode {
+                        background-position:-($graphIconWidth*7) $graphIconHeightActive;
+                    }
+
+                    &-filterlist {
+                        background-position:-($graphIconWidth*8) $graphIconHeightActive;
+                    }
+
+                    &-viewon {
+                        background-position:-($graphIconWidth*9) $graphIconHeightActive;
+                    }
+
+                    &-viewoff {
+                        background-position:-($graphIconWidth*10) $graphIconHeightActive;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .tableData {
+        display: table;
+        width: 100%;
+
+        .rows {
+            display: table-row;
+            background-color: #f5f5f5;
+
+            .datacontent {
+                display: none;
+            }
+
+            .col {
+                display: table-cell;
+                padding: 3px 7px 3px 7px;
+                vertical-align: top;
+                border-bottom: 1px solid $tableBordercolor;
+
+                &-first {
+                    padding-left: 17px;
+                }
+
+                &-third {
+                   width: 32%;
+                }
+            }
+        }
+
+        &-body {
+            display: table-row-group;
+        }
+
+        &-header {
+            display: table-header-group;
+
+            .rows {
+                background-color: #eeeeee;
+                color: $tableHeaderTextcolor;
+            }
+        }
+
+    }
+
+    .js-plotly-plot .plotly {
+
+        .modebar {
+            top: auto;
+            bottom: 10px;
+            background: transparent !important;
+            z-index: 0;
+            right: -22px;
+            &-group {
+                a{
+                    float: none;
+                    display: block;
+                    width: 24px;
+                    border: 1px solid #dddddd;
+                    -webkit-box-shadow: 1px 1px 1px 0 #cfcfcf;
+                    -moz-box-shadow: 1px 1px 1px 0 #cfcfcf;
+                    box-shadow: 1px 1px 1px 0 #cfcfcf;
+                }
+            }
+
+            &-btn {
+                display: block;
+                padding: 3px;
+                text-align: center;
+                border-bottom: 1px solid #f1f1f1;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        & [data-title] {
+
+            &::after {
+             background-color: #fafafa;
+                border: 1px solid #cbcbcb;
+                padding: 6px;
+                -webkit-box-shadow: 1px 2px 5px 1px #d8dedc;
+                -moz-box-shadow: 1px 2px 5px 1px #d8dedc;
+                box-shadow: 1px 2px 5px 1px #d8dedc;
+                color: $primaryTextColor;
+            }
+
+            &::before {
+                border: 0;
+            }
+        }
+    }
+
+
+    &-leftColumn {
+        font-family: $fontProximaSemiBold;
+
+        h4 {
+            font-family: $fontProximaSemiBold;
+        }
+
+        .l-filter-panel {
+
+            ul li {
+                a {
+                    color: $tertiaryTextColor;
+                    font-size: 14px;
+                }
+
+                .l-filter-options {
+
+                    .l-filter-list {
+                        &.l-filter-checkbox-list {
+                            max-height: 200px;
+                            overflow-y: auto;
+                            padding-right: 20px;
+
+                            li label {
+                                font-size: 14px;
+                                color: $tertiaryTextColor;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    &-rightColumn {
+
+        h2, h3, h4, h5, h6 {
+            font-family: $fontProximaLight;
+        }
+
+        .caption {
+            padding: 3px 0;
+
+            .subTitle {
+                color: $secondaryTextColor;
+            }
+        }
+
+        .pageHeader {
+           padding-bottom: 15px;
+
+            .widget {
+                float: right;
+            }
+        }
+
+        .panels {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .graph {
+            &.edit {
+
+                .box {
+                    @include box-shadow-edit;
+
+                    &.inactive {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.picker {
+    width: 100%;
+    max-width: 354px;
+
+    &-label-txt {
+        float: right;
+        padding-top: 10px;
+        margin-right: 10px;
+    }
+
+    &-date {
+        float: right;
+        width: 64%;
+        position: relative;
+
+        i {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            top: auto;
+            cursor: pointer;
+            color: #999999;
+        }
+    }
+}
+
+
+

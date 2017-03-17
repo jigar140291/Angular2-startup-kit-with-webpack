@@ -1,0 +1,20 @@
+@import 'overwrite';
+@import 'pages/dashboard/dashboard';
+
+
+.float-l{
+  float: left;
+}
+.analytic .box.fixed-height-270{
+  position: relative;
+}
+.disabled{
+  cursor: default;
+  pointer-events: none;
+}
+#loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

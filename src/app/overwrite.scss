@@ -1,0 +1,33 @@
+.l-sub-nav-panel {
+    margin: 0 auto 17px;
+}
+
+.l-filter-panel ul li .l-filter-options {
+    padding: 0px 20px 13px;
+}
+
+.l-search-courses-wrap {
+    padding-bottom: 10px;
+}
+
+.l-search-courses-wrap .dropdown-menu {
+    top:36px;
+}
+
+.form-control {
+    padding: 6px 10px 4px 20px;
+}
+.form-control[readonly]{
+    background: #fff;
+}
+/*Plotly.js over ride*/
+.hoverlayer{
+    path{
+        fill: #fafafa !important;
+        stroke: #ccc !important;
+    }
+    text{
+        fill: #333 !important;
+        font-family: 'proxima_novalight' !important;
+    }
+}
